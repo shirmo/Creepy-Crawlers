@@ -1,18 +1,24 @@
 class articleParams:
-    def __init__(self, id, BSobj):
-        self.id = id
+    def __init__(self, BSobj):
+        self.json = {}
         self.html = BSobj
-        self.articleRef = self.setArticleRef()
-        self.toJson = {'id': self.id}
+        # אפשר לא להחזיק את הפרמטרים ופשוט להכניס אותם לתוך הJSON לפי הסדר בכל פונקציה
 
+        self.articleRef = self.setArticleRef()
+
+        self.id = self.setId()
         self.creator = self.setCreator()
         self.title = self.setTitle()
-        self.text = self.setText()
         self.dollarsPledged = self.setDollarsPledged()
         self.dollarsGoal = self.setDollarsGoal()
         self.numBackers = self.setNumBackers()
         self.daysToGo = self.setDaysToGo()
+
         self.allOrNothing = self.setAllOrNothing()
+        self.text = self.setText()
+
+    def setId(self):
+        pass
 
     def setCreator(self):
         pass
@@ -36,7 +42,15 @@ class articleParams:
         pass
 
     def setAllOrNothing(self):
+        # soup = self.articleRef
+        # allOrNothing = soup.find_all('span', {'data-test-id': "deadline-exists"})  # finds all or nothing text
         pass
 
     def setArticleRef(self):
         pass
+
+    def jsonCreator(self):
+        pass
+
+    def getJson(self):
+        return self.json
